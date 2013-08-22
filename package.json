@@ -1,0 +1,21 @@
+{
+  "name": "Downloadr.io",
+  "version": "0.0.1",
+  "author": "Jake Marsh",
+  "description": "A simple file-sharing web app built on the MEAN stack.",
+  "main": "./server/server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakemmarsh/file-sharing.git"
+  },
+  "dependencies" : {
+    "mongoose" :  ">=3.6.x",
+    "express"  :  ">=3.2.x",
+    "q"        :  ">=0.9.x"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.x",
+    "npm":  ">=1.0.x"
+  }
+}
