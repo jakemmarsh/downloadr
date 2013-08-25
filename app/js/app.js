@@ -1,6 +1,7 @@
 define([
     'angular',
     'angular-sanitize',
+    'angular-ui-router',
     './controllers/index',
     './directives/index',
     './filters/index',
@@ -13,6 +14,7 @@ define([
         'app.controllers',
         'app.filters',
         'app.directives',
-        'ngSanitize'
+        'ngSanitize',
+        'ui.state'
     ]);
 });

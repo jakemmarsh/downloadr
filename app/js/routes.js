@@ -3,16 +3,16 @@
  */
 define(['./app'], function (app) {
     'use strict';
-    app.config(function ($routeProvider, $locationProvider) {   
+    app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {  
         $locationProvider.html5Mode(true);
 
-        $routeProvider
-        .when('/', {
-            templateUrl: 'partials/index.html',
+        $urlRouterProvider.otherwise("/") 
+
+        $stateProvider
+        .state('index', {
+            url: '/',
+            templateUrl: '/partials/home.html',
             controller: 'mainCtrl'
-        })
-        .otherwise({
-            redirectTo: '/'
         });
     });
 });

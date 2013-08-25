@@ -10,7 +10,8 @@ require.config({
         'domReady': './lib/requirejs/domReady',
         'angular': './lib/angular/angular.min',
         'angular-resource': './lib/angular/angular-resource.min',
-        'angular-sanitize' : './lib/angular/angular-sanitize.min'
+        'angular-sanitize' : './lib/angular/angular-sanitize.min',
+        'angular-ui-router' : './lib/angular/angular-ui-router.min'
     },
 
     shim: {
@@ -22,6 +23,9 @@ require.config({
             deps: ['angular']
         },
         'angular-sanitize': {
+            deps: ['angular']
+        },
+        'angular-ui-router': {
             deps: ['angular']
         }
     }
