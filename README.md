@@ -1,6 +1,6 @@
 Downloadr
 ============
-Downloadr is an open-source, anonymous web app for sharing files built on the [MEAN](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and) stack. It uses AngularJS for the frontend, NodeJS/Express for the server, and MongoDB for file storage.
+Downloadr is an open-source, anonymous web app for sharing files built on the [MEAN stack](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and). It uses AngularJS for the frontend, NodeJS/Express for the server, and MongoDB for file storage.
 
 - Files are uploaded via a simple web form, and given a unique identifier/web address. There are no file size limits by default.
 - This link can be shared with any number of people to allow them to download the uploaded file. No throttling occurs as it does on many file sharing sites.
