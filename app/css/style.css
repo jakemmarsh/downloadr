@@ -1,0 +1,23 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	padding-top: 50px;
+}
+
+#main-content {
+	height: 90%;
+	padding-top: 100px;
+}
+
+	@media (max-width: 600px) {
+	  #main-content {
+	    padding-top: 0;
+	  }
+	}
+
+.full-height {
+	height: 100%;
+}
