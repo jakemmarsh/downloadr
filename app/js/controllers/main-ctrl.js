@@ -1,6 +1,9 @@
 define(['./index'], function (controllers) {
     'use strict';
     controllers.controller('mainCtrl', function ($scope) {
-    	$scope.testVar = "test here";
+    	$scope.uploadFile = function() {
+    		console.log('upload');
+    		console.log($scope.file);
+    	}
     });
 });

@@ -5,12 +5,23 @@
 		</div>
 	</div>
 </nav>
-<div class="jumbotron">
-  <div class="container">
-    <h2><strong>An easier way to share files</strong></h2>
-    <p>Quickly upload your file, share the link with your friend or colleague, and they are immediately able to download the file without any limiting or waiting! Files are then immediately deleted after they are downloaded by a user.</p>
-  </div>
-</div>
-<div class="container">
-    <p><a class="btn btn-primary btn-lg"><i class="icon-cloud-upload"></i> Upload a file</a></p>
-</div>
+<main id="main-content">
+	<div class="container">
+		<h1>An easier way to share files</h1>
+		<p class="lead">Quickly upload your file, share the link with your friend or colleague, and they are immediately able to download the file without any limiting or waiting! Files are then immediately deleted after they are downloaded by a user.</p>
+	</div>
+	<div class="well container text-center">
+		<form class="dropzone" data-ng-submit="uploadFile()">
+		    <div class="input-group">
+		      <input type="file" class="form-control" data-ng-model="file">
+		      <span class="input-group-btn">
+		        <button class="btn btn-primary" type="submit"><i class="icon-cloud-upload"></i> Upload File</button>
+		      </span>
+		    </div>
+		</form>
+	</div>
+</main>
+
+<footer class="container">
+	<p>Downloadr is an open-source solution for easy file sharing. <a href="https://github.com/jakemmarsh/downloadr" target="_blank" title="View on Github">View the source code on Github</a></p>
+</footer>

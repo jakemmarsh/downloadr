@@ -4,5 +4,6 @@
  * but implementations' `define`s placed elsewhere void the warranty
  */
 define([
-    'controllers/main-ctrl'
+    'controllers/main-ctrl',
+    'directives/dropzone'
 ], function () {});
