@@ -15,9 +15,18 @@ body {
 	@media (max-width: 600px) {
 	  #main-content {
 	    padding-top: 0;
+	    height: 75%;
 	  }
 	}
 
 .full-height {
 	height: 100%;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.half-margin-top {
+	margin-top: 10px;
 }

@@ -5,5 +5,6 @@
  */
 define([
     'controllers/main-ctrl',
+    'controllers/download-ctrl',
     'directives/dropzone'
 ], function () {});

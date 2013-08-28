@@ -10,9 +10,17 @@ define(['./app'], function (app) {
 
         $stateProvider
         .state('index', {
+            templateUrl: '/partials/index.html'
+        })
+        .state('index.home', {
             url: '/',
             templateUrl: '/partials/home.html',
             controller: 'mainCtrl'
-        });
+        })
+        .state('index.download', {
+            url: '/file/:fileId',
+            templateUrl: '/partials/download.html',
+            controller: 'downloadCtrl'
+        });;
     });
 });
