@@ -1,1 +1,1 @@
-//exports.auth = require('../routes/auth');
+exports.file = require('../routes/file');
