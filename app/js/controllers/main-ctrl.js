@@ -1,9 +1,16 @@
 define(['./index'], function (controllers) {
     'use strict';
-    controllers.controller('mainCtrl', function ($scope) {
+    controllers.controller('mainCtrl', function ($scope, File) {
+    	$scope.fileUploaded = false;
+
     	$scope.uploadFile = function() {
-    		console.log('upload');
-    		console.log($scope.file);
+    		File.upload($scope.fileToUpload).then(function (data) {
+				console.log(data);
+				$scope.fileUploaded = true;
+		    },
+		    function (errorMessage) {
+		        console.log(errorMessage);
+		    });
     	}
     });
 });

@@ -6,5 +6,6 @@
 define([
     'controllers/main-ctrl',
     'controllers/download-ctrl',
-    'directives/dropzone'
+    'directives/read-file',
+    'services/files'
 ], function () {});
