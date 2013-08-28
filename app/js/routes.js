@@ -20,7 +20,18 @@ define(['./app'], function (app) {
         .state('index.download', {
             url: '/file/:fileId',
             templateUrl: '/partials/download.html',
-            controller: 'downloadCtrl'
-        });;
+            controller: 'downloadCtrl',
+            resolve: {
+                promisedFile:  function($http, $stateParams, $location){
+                    return $http.get('/api/files/' + $stateParams.fileId)
+                    .success(function (data) {
+                        return data;
+                    })
+                    .error(function(errorData) {
+                         $location.path('/');
+                    });
+                }
+           }
+        });
     });
 });

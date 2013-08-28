@@ -22,8 +22,8 @@ app.configure(function() {
     app.use("/partials", express.static(__dirname + "/../app/partials"));
 
     // RESTful endpoints for files
-    app.post('/api/file', routes.file.upload);
-    app.get('/api/file/:fileId', routes.file.get);
+    app.post('/api/files/', routes.file.upload);
+    app.get('/api/files/:fileId', routes.file.get);
 
     // serve index.html for all remaining routes, in order to leave routing up to angular
     app.all("/*", function(req, res, next) {

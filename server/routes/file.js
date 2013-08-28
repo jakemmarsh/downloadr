@@ -22,26 +22,28 @@ exports.upload = function(req, res) {
     //         schoolId: eventSchoolId
     //     });
 
-    var saveFile = function(file) {
-        var deferred = Q.defer();
+    console.log(req.files);
 
-        file.save(function (err, savedFile) {
-            if (err) {
-                deferred.reject(err.message);
-            }
-            else {
-                deferred.resolve(savedEvent);
-            }
-        });
+    // var saveFile = function(file) {
+    //     var deferred = Q.defer();
 
-        return deferred.promise;
-    }
+    //     file.save(function (err, savedFile) {
+    //         if (err) {
+    //             deferred.reject(err.message);
+    //         }
+    //         else {
+    //             deferred.resolve(savedEvent);
+    //         }
+    //     });
 
-    saveFile(event).then(function(data) {
-        res.json(data);
-    }, function(){
-        res.send(500, 'failed to upload new file');
-    });
+    //     return deferred.promise;
+    // }
+
+    // saveFile(event).then(function(data) {
+    //     res.json(data);
+    // }, function(){
+    //     res.send(500, 'failed to upload new file');
+    // });
 };
 
 exports.get = function(req, res) {
