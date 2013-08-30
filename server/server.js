@@ -1,12 +1,12 @@
 var path     = require('path'),
     express  = require('express'),
+    fs       = require('fs'),
     app      = express(),
     mongoose = require('mongoose'),
     routes   = require(path.join(__dirname, 'routes'));
 
-// mongoose.connect('mongodb://'+dbusr+':'+dbpw+'@dharma.mongohq.com:10004/'+db);
-
-// mongoose.set('debug', true);
+mongoose.connect('mongodb://127.0.0.1:27017/downloadr');
+mongoose.set('debug', true);
 
 
 app.configure(function() {
