@@ -1,6 +1,6 @@
 define(['./index'], function (services) {
     'use strict';
-	services.service('File', function($http, $q, $resource) {
+	services.service('File', function($http, $q) {
 		return {
 
 			apiPath: '/api/files/',

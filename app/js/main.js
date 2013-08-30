@@ -9,19 +9,15 @@ require.config({
         'lib': './lib',
         'domReady': './lib/requirejs/domReady',
         'angular': './lib/angular/angular.min',
-        'angular-resource': './lib/angular/angular-resource.min',
         'angular-sanitize' : './lib/angular/angular-sanitize.min',
         'angular-ui-router' : './lib/angular/angular-ui-router.min',
-        'dropzone' : './lib/dropzone-amd-module.js'
+        'jQuery' : './lib/jquery-1.10.2.min'
     },
 
     shim: {
         'angular': {
             exports: 'angular',
-            deps: []
-        },
-        'angular-resource': {
-            deps: ['angular']
+            deps: ['jQuery']
         },
         'angular-sanitize': {
             deps: ['angular']
