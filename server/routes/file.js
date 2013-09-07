@@ -23,7 +23,7 @@ exports.upload = function(req, res) {
 
         // respond with uploaded file data upon success
         writestream.on('close', function (file) {
-            console.log(file);
+            db.close();
             res.json(file);
         });
     });
@@ -43,6 +43,6 @@ exports.get = function(req, res) {
             res.send(500, 'failed to retrieve file.');
         })
         // and pipe it to Express' response
-        .pipe(res);  
+        .pipe(res);
     });
 };
