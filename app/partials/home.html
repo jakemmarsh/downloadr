@@ -1,9 +1,13 @@
-<div class="container">
+<div class="container" data-ng-hide="fileUploaded">
 	<h1 class="text-primary">An easier way to share files</h1>
-	<p class="lead">Quickly upload your file, share the link with your friend or colleague, and they are immediately able to download the file without any limiting or waiting! Files are then immediately deleted after they are downloaded by a user.</p>
+	<p class="lead">Quickly upload your file, share the link with your friend or colleague, and they are immediately able to download the file without any limiting or waiting! Files can be downloaded by anyone, any number of times, for 48 hours. After these 48 hours, the files are completely removed from the database.</p>
+</div>
+<div class="container" data-ng-show="fileUploaded">
+	<h1 class="text-success">File uploaded!</h1>
+	<p class="lead">Your file has been successfully uploaded, and the unique URL can be found below. This URL can be used by anyone to download the file for 48 hours, and then the file will be removed from the database.</p>
 </div>
 <div class="well container text-center">
-	<form data-ng-submit="uploadFile()">
+	<form data-ng-submit="uploadFile()" data-ng-hide="fileUploaded">
 	    <div class="input-group input-group-lg">
 	      <input type="file" class="form-control" data-ng-file-select="onFileSelect($files)" required />
 	      <span class="input-group-btn">
@@ -11,4 +15,11 @@
 	      </span>
 	    </div>
 	</form>
+	<div data-ng-show="fileUploaded" class="text-left">
+		<h3>Your file's URL:</h3>
+		<div class="form-group">
+			<input type="text" class="form-control" readonly="readonly" data-ng-value="fileUrl" />
+		</div>
+	</div>
+	<h1 data-ng-show="uploadingFile && !fileUploaded"><img src="img/loading.gif" alt="loading image" /> Uploading your file...</h1>
 </div>
