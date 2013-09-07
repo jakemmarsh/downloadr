@@ -7,7 +7,7 @@ require.config({
 
     paths: {
         'lib': './lib',
-        'domReady': './lib/requirejs/domReady',
+        'domReady': './lib/requirejs/domReady.min',
         'angular': './lib/angular/angular.min',
         'angular-sanitize' : './lib/angular/angular-sanitize.min',
         'angular-ui-router' : './lib/angular/angular-ui-router.min',
