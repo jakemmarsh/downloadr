@@ -6,5 +6,5 @@
 define([
     'controllers/main-ctrl',
     'controllers/download-ctrl',
-    'directives/read-file'
+    'directives/input-select'
 ], function () {});
