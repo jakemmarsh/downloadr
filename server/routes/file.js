@@ -23,6 +23,7 @@ exports.upload = function(req, res) {
     //     });
 
     console.log(req.files);
+    res.send("OK");
 
     // var saveFile = function(file) {
     //     var deferred = Q.defer();
