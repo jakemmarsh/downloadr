@@ -11,6 +11,8 @@ require.config({
         'angular': './lib/angular/angular.min',
         'angular-sanitize' : './lib/angular/angular-sanitize.min',
         'angular-ui-router' : './lib/angular/angular-ui-router.min',
+        'angular-file-upload' : './lib/angular-file-upload.min',
+        'file-api' : './lib/FileAPI.min',
         'jQuery' : './lib/jquery-1.10.2.min'
     },
 
@@ -24,6 +26,9 @@ require.config({
         },
         'angular-ui-router': {
             deps: ['angular']
+        },
+        'angular-file-upload': {
+            deps: ['file-api']
         }
     }
 });

@@ -2,6 +2,7 @@ define([
     'angular',
     'angular-sanitize',
     'angular-ui-router',
+    'angular-file-upload',
     './controllers/index',
     './directives/index',
     './filters/index',
@@ -15,6 +16,7 @@ define([
         'app.filters',
         'app.directives',
         'ngSanitize',
-        'ui.state'
+        'ui.state',
+        'angularFileUpload'
     ]);
 });
