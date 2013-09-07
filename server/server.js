@@ -17,7 +17,8 @@ app.configure(function() {
 
     // endpoints for files
     app.post('/api/files/', routes.file.upload);
-    app.get('/api/files/:fileId', routes.file.get);
+    app.get('/api/files/:fileId', routes.file.getInfo);
+    app.get('/file/download/:fileId', routes.file.download);
 
     // serve index.html for all remaining routes, in order to leave routing up to angular
     app.all("/*", function(req, res, next) {

@@ -4,7 +4,7 @@
 
 <div class="well container">
 	<h1 class="half-margin-top" data-ng-bind="file.name">File Name</h1>
-	<p><strong>Format:</strong> <span data-ng-bind="file.format">File Format</span>	|	<strong>Size:</strong> <span data-ng-bind="file.size">File Size</span>	|	<strong>Upload Date:</strong> <span data-ng-bind="file.date">File Date</span></p>
+	<p><strong>Size:</strong> <span data-ng-bind="file.size">File Size</span>	|	<strong>Upload Date:</strong> <span data-ng-bind="file.uploadDate">File Date</span></p>
 
-	<button type="button" class="btn btn-primary btn-lg full-width"><i class="icon-cloud-download"></i> <strong>Download File</strong></button>
+	<a ng-href="file/download/{{fileId}}" target="_blank" class="btn btn-primary btn-lg full-width"><i class="icon-cloud-download"></i> <strong>Download File</strong></a>
 </div>
