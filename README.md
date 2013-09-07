@@ -7,3 +7,12 @@ Downloadr is an open-source, anonymous web app for sharing files built on the [M
 - Uploaded files are given a TTL (time to live) of 48 hours, meaning that regardless of the number of downloads a file has, it is completely removed from the database after 48 hours and can no longer be viewed or downloaded.
 
 All interactions are completely anonymous and no data is stored about the user. This includes both uploading and downloading files.
+
+Libraries Used
+---------------
+Downloadr utilizes multiple third-party libraries. These are:
+
+- [domReady](https://github.com/requirejs/domReady)
+- [requireJS](http://requirejs.org/)
+- [Angular UI Router](https://github.com/angular-ui/ui-router)
+- [Angular File Upload](https://github.com/danialfarid/angular-file-upload)
