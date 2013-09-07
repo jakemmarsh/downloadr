@@ -1,73 +1,48 @@
-var Q     = require('q'),
-    File = require('../models/file');
+var Q        = require('q'),
+    fs       = require('fs'),
+    mongo    = require('mongodb'),
+    Grid     = require('gridfs-stream');
 
 exports.upload = function(req, res) {
-    // var eventTitle = req.body.title,
-    //     eventLocation = req.body.location,
-    //     eventDescription = req.body.description,
-    //     eventStart = req.body.start,
-    //     eventEnd = req.body.end,
-    //     eventCategory = req.body.category,
-    //     eventCreator = req.body.creator,
-    //     eventSchoolId = req.body.schoolId,
-    //     file = new File({
-    //         title: eventTitle,
-    //         location: eventLocation,
-    //         description: eventDescription,
-    //         start: eventStart,
-    //         end: eventEnd,
-    //         category: eventCategory,
-    //         creator: eventCreator,
-    //         created: new Date(),
-    //         schoolId: eventSchoolId
-    //     });
+    var db = new mongo.Db('downloadr', new mongo.Server("127.0.0.1", 27017, {}), {safe: false, strict: false});
 
-    console.log(req.files);
-    res.send("OK");
+    db.open(function (err) {
+        if (err) return handleError(err);
 
-    // var saveFile = function(file) {
-    //     var deferred = Q.defer();
+        var gfs         = Grid(db, mongo),
+            tempfile    = req.files.file.path,
+            origname    = req.files.file.name,
+            writestream = gfs.createWriteStream({ filename: origname });
+        
+        // open a stream to the temporary file created by Express
+        fs.createReadStream(tempfile)
+        .on('error', function() {
+            res.send(500, 'failed to upload a file.');
+        })
+        .pipe(writestream);
 
-    //     file.save(function (err, savedFile) {
-    //         if (err) {
-    //             deferred.reject(err.message);
-    //         }
-    //         else {
-    //             deferred.resolve(savedEvent);
-    //         }
-    //     });
-
-    //     return deferred.promise;
-    // }
-
-    // saveFile(event).then(function(data) {
-    //     res.json(data);
-    // }, function(){
-    //     res.send(500, 'failed to upload new file');
-    // });
+        // respond with uploaded file data upon success
+        writestream.on('close', function (file) {
+            console.log(file);
+            res.json(file);
+        });
+    });
 };
 
 exports.get = function(req, res) {
-	var fileId = req.params.fileId;
+    var db = new mongo.Db('downloadr', new mongo.Server("127.0.0.1", 27017, {}), {safe: false, strict: false});
 
-    var findFile = function(reqFileId) {
-        var deferred = Q.defer();
+    db.open(function (err) {
+        if (err) return handleError(err);
+        var gfs = Grid(db, mongo);
 
-        File.find({ _id: reqFileId }, function (err, event) {
-            if (err) {
-                deferred.reject(err.message);
-            }
-            else {
-                deferred.resolve(event);
-            }
-        });
-
-        return deferred.promise;
-    }
-
-    findFile(fileId).then(function(data) {
-        res.json(data);
-    }, function() {
-        res.send(500, 'failed to retrieve file by ID');
+        gfs
+        // create a read stream from gfs...
+        .createReadStream({ _id: req.param('fileId') })
+        .on('error', function() {
+            res.send(500, 'failed to retrieve file.');
+        })
+        // and pipe it to Express' response
+        .pipe(res);  
     });
 };

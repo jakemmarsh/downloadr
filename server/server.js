@@ -1,16 +1,7 @@
 var path     = require('path'),
     express  = require('express'),
     app      = express(),
-    mongo    = require('mongodb'),
-    Grid     = require('gridfs-stream'),
     routes   = require(path.join(__dirname, 'routes'));
-
-var db = new mongo.Db('downloadr', new mongo.Server("127.0.0.1", 27017, {}), {safe: false, strict: false});
-
-db.open(function (err) {
-  if (err) return handleError(err);
-  var gfs = Grid(db, mongo);
-});
 
 app.configure(function() {
     app.use(express.logger('dev'));
@@ -24,7 +15,7 @@ app.configure(function() {
     app.use("/css", express.static(__dirname + "/../app/css"));
     app.use("/partials", express.static(__dirname + "/../app/partials"));
 
-    // RESTful endpoints for files
+    // endpoints for files
     app.post('/api/files/', routes.file.upload);
     app.get('/api/files/:fileId', routes.file.get);
 
