@@ -3,8 +3,8 @@
 </div>
 
 <div class="well container">
-	<h1 class="half-margin-top">File Name</h1>
-	<p><strong>Format:</strong> File Format	|	<strong>Size:</strong> File Size	|	<strong>Upload Date:</strong> File Date</p>
+	<h1 class="half-margin-top" data-ng-bind="file.name">File Name</h1>
+	<p><strong>Format:</strong> <span data-ng-bind="file.format">File Format</span>	|	<strong>Size:</strong> <span data-ng-bind="file.size">File Size</span>	|	<strong>Upload Date:</strong> <span data-ng-bind="file.date">File Date</span></p>
 
 	<button type="button" class="btn btn-primary btn-lg full-width"><i class="icon-cloud-download"></i> <strong>Download File</strong></button>
 </div>
