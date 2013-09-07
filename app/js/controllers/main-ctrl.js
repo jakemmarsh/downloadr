@@ -1,6 +1,6 @@
 define(['./index'], function (controllers) {
     'use strict';
-    controllers.controller('mainCtrl', function ($scope, $http) {
+    controllers.controller('mainCtrl', function ($scope, $http, $location) {
     	$scope.fileUploaded = false;
     	$scope.fileSelected = false;
     	$scope.uploadingFile = false;
@@ -26,7 +26,9 @@ define(['./index'], function (controllers) {
 			        // file is uploaded successfully
 			        $scope.fileUploaded = true;
 			        $scope.uploadingFile = false;
-			        console.log(data);
+			        console.log(data.data);
+			        $scope.fileName = data.data.filename;
+			        $scope.fileUrl = $location.host() + "/file/" + data.data._id;
 			    },
 			    function (errorMessage) {
 			    	$scope.uploadingFile = false;
