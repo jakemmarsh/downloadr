@@ -6,12 +6,13 @@
   "main": "./server/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jakemmarsh/file-sharing.git"
+    "url": "https://github.com/jakemmarsh/downloadr.git"
   },
   "dependencies" : {
-    "mongoose" :  ">=3.6.x",
-    "express"  :  ">=3.2.x",
-    "q"        :  ">=0.9.x"
+    "mongodb"       :  "*",
+    "gridfs-stream" : "*",
+    "express"       :  ">=3.2.x",
+    "q"             :  ">=0.9.x"
   },
   "license": "MIT",
   "engines": {

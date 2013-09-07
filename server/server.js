@@ -1,13 +1,16 @@
 var path     = require('path'),
     express  = require('express'),
-    fs       = require('fs'),
     app      = express(),
-    mongoose = require('mongoose'),
+    mongo    = require('mongodb'),
+    Grid     = require('gridfs-stream'),
     routes   = require(path.join(__dirname, 'routes'));
 
-mongoose.connect('mongodb://127.0.0.1:27017/downloadr');
-mongoose.set('debug', true);
+var db = new mongo.Db('downloadr', new mongo.Server("127.0.0.1", 27017, {}), {safe: false, strict: false});
 
+db.open(function (err) {
+  if (err) return handleError(err);
+  var gfs = Grid(db, mongo);
+});
 
 app.configure(function() {
     app.use(express.logger('dev'));
