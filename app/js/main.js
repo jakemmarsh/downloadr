@@ -9,7 +9,6 @@ require.config({
         'lib': './lib',
         'domReady': './lib/requirejs/domReady.min',
         'angular': './lib/angular/angular.min',
-        'angular-sanitize' : './lib/angular/angular-sanitize.min',
         'angular-ui-router' : './lib/angular/angular-ui-router.min',
         'angular-file-upload' : './lib/angular-file-upload.min',
         'file-api' : './lib/FileAPI.min',
@@ -20,9 +19,6 @@ require.config({
         'angular': {
             exports: 'angular',
             deps: ['jQuery']
-        },
-        'angular-sanitize': {
-            deps: ['angular']
         },
         'angular-ui-router': {
             deps: ['angular']
