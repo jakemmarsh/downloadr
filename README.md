@@ -16,3 +16,4 @@ Downloadr utilizes multiple third-party libraries. These are:
 - [requireJS](http://requirejs.org/)
 - [Angular UI Router](https://github.com/angular-ui/ui-router)
 - [Angular File Upload](https://github.com/danialfarid/angular-file-upload)
+- [GridFS-Stream](https://github.com/aheckmann/gridfs-stream)
